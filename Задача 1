@@ -1,0 +1,37 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    std::string name;
+    int price, temperature;
+    bool hasCashback;
+    std::cout << "Product's name: ";
+    std::cin >> name;
+    std::cout << "Product's price: ";
+    std::cin >> price;
+    std::cout << "Is cash-back available for this product? (true/false) ";
+    std::cin >> argument;
+    if (argument == "true" )
+    {
+        hasCashback = true;
+    }
+    else
+    {
+        hasCashback = false;
+    }
+    std::cout << "Maximum storing temperature: ";
+    std::cin >> temperature;
+
+    std::cout << '\n' << "*************** OUTPUT ***************" << "\n\n";
+
+    std::cout << name << '\n';
+    std::cout << "Price:";
+    std::cout << cout.fill('.') <<cout.width(11) << std:: right << ".";
+    std::cout << cout.fill('0') <<cout.width(6) << std:: right << hex << price << std:: endl;
+    std::cout << "Has cash-back:";
+    std::cout <<cout.fill('.') <<cout.width(7) << std:: right << std:: boolalpha << hasCashback <<std:: endl;
+    std::cout << "Max temperature:";
+    std::cout <<cout.fill('.') <<cout.width(6) <<std:: right << dec << showpos<< temperature <<std:: endl;
+
+    return 0;
+}
