@@ -13,7 +13,7 @@ int main() {
     std::cin >> selected_value;
     std::cout << "Enter the value of variable:" << std::endl;
     std::cin >> x;
-    if (from_SI_to_SGSM == "answer")
+    if ("from_SI_to_SGSM" == answer)
     {
         if (selected_value == "power")
         {
@@ -31,7 +31,7 @@ int main() {
         std::cout << "New value: " << x << std::endl;
         }
     }
-    if (from_SGSM_to_SI == "answer")
+    if ("from_SGSM_to_SI" == answer)
     {
         if (selected_value == "power")
         {
@@ -41,7 +41,7 @@ int main() {
         else if (selected_value == "work")
         {
             x /= SI_work;
-        std::cout << "New value: " << x/SI_work << std::endl;
+        std::cout << "New value: " << x << std::endl;
         }
         else if (selected_value == "charge")
         {
