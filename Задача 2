@@ -1,54 +1,54 @@
 #include <iostream>
-#define SI_power 10^(-5)
-#define SI_work 10^(-7)
-#define SI_charge 10 
+#define SI_power 1e-5
+#define SI_work 1e-7
+#define SI_charge 10
 
 int main() {
-    int answer;
     double x;
+    std::string name, from_SI_to_SGSM, from_SGSM_to_SI, answer;
     std::string selected_value;
-    std::cout << "Hello in unit converter" <<std::endl;
     std::cout << "Choose an operation(from_SI_to_SGSM/from_SGSM_to_SI): " << std::endl;
-    std::cin >>answer;
+    std::cin >> answer;
     std::cout << "Choose physical quantity(power/work/charge):" << std::endl;
     std::cin >> selected_value;
     std::cout << "Enter the value of variable:" << std::endl;
     std::cin >> x;
-    if (from_SI_to_SGSM == answer)
+    if (from_SI_to_SGSM == "answer")
     {
         if (selected_value == "power")
         {
             x *= SI_power;
-            std::cout << "New value: " << x << std::endl;
+        std::cout << "New value: " << x << std::endl;
         }
         else if (selected_value == "work")
         {
             x *= SI_work;
-            std::cout << "New value: " << x << std::endl;
+        std::cout << "New value: " << x << std::endl;
         }
         else if (selected_value == "charge")
         {
             x *= SI_charge;
-            std::cout << "New value: " << x << std::endl;
+        std::cout << "New value: " << x << std::endl;
         }
     }
-    if (from_SGSM_to_SI == answer)
+    if (from_SGSM_to_SI == "answer")
     {
         if (selected_value == "power")
         {
             x /= SI_power;
-            std::cout << "New value: " << x << std::endl;
+        std::cout << "New value: " << x << std::endl;
         }
         else if (selected_value == "work")
         {
             x /= SI_work;
-            std::cout << "New value: " << x << std::endl;
+        std::cout << "New value: " << x/SI_work << std::endl;
         }
         else if (selected_value == "charge")
         {
             x /= SI_charge;
-            std::cout << "New value: " << x << std::endl;
+        std::cout << "New value: " << x << std::endl;
         }
     }
-    
+
 }
+
