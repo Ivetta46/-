@@ -2,7 +2,7 @@
 #include <iomanip>
 
 int main() {
-    std::string name = "argument";
+    std::string name, argument;
     int price, temperature;
     bool hasCashback;
     std::cout << "Product's name: ";
@@ -26,12 +26,12 @@ int main() {
 
     std::cout << name << '\n';
     std::cout << "Price:";
-    std::cout <<std:: setfill('.') <<std:: setw(15) << std:: right << ".";
-    std::cout<<std:: setfill('0') << std:: setw(15) << std:: right << std:: cout <<std:: uppercase<<std:: hex << price << std:: endl;
+    std::cout <<std:: setfill('.') <<std:: setw(10) << std:: right << ".";
+    std::cout<<std:: setfill('0') << std:: setw(6) << std:: right <<std:: uppercase<<std:: hex << price << std:: endl;
     std::cout << "Has cash-back:";
-    std::cout <<std:: setfill('.')<<std:: setw(15) << std:: right << std:: boolalpha << hasCashback <<std:: endl;
+    std::cout <<std:: setfill('.')<<std:: setw(8) << std:: right << std:: boolalpha << hasCashback <<std:: endl;
     std::cout << "Max temperature:";
-    std::cout <<std:: setfill('.') <<std:: setw(15) << std:: right <<std:: dec <<std:: showpos<< temperature <<std:: endl;
+    std::cout <<std:: setfill('.') <<std:: setw(6) << std:: right <<std:: dec <<std:: showpos<< temperature <<std:: endl;
 
     return 0;
 }
