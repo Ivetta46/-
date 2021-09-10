@@ -5,7 +5,7 @@
 
 int main() {
     double x;
-    std::string name, from_SI_to_SGSM, from_SGSM_to_SI, answer;
+    std::string name, answer;
     std::string selected_value;
     std::cout << "Choose an operation(from_SI_to_SGSM/from_SGSM_to_SI): " << std::endl;
     std::cin >> answer;
