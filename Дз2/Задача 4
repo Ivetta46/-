@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int left;
+    int right;
+    int n;
+    int x;
+    std::cout << "Enter size of array: " << std::endl;
+    std::cin >> n;
+    std::vector<int> v(n);
+    for(int i = 0; i < n; i++) {
+        v[i] = i;
+        std:: cin >> v[i];
+    }
+
+    std::cout << "Enter the key: " << std::endl;
+    std::cin >> x;
+
+    left = 0;
+    right = n - 1;
+    while (left <= right) {
+        int middle = (left + right) / 2;
+        if (x < v[middle])
+            right = middle - 1;
+        else if (x > v[middle])
+            left = middle + 1;
+        else
+            return middle;
+    }
+    std::cout << "The number is missing " << std::endl;
+}
