@@ -27,7 +27,7 @@ list.append()                    push_back / push_front (добавление в
 
 List.clear()                     namevector.clear() 
 
-For item in some_list            list <int>::iterator i; Или for(инициализ. ; условие ; увел. / уменьш. Переменной){}  
+For item in some_list            list <тип>::iterator i; Или for(тип item: vector){}  
 
 str                              string 
 
