@@ -6,20 +6,18 @@ int main() {
     std::vector<std::string> v;
     std::string line, a;
     char b;
-    int length;
     std::string separator;
     std::cout << "Enter string: " << std::endl;
     std::getline(std:: cin, line);
-    length = line.size();
     std::cout << "Enter a separator: " << std::endl;
     std::getline(std:: cin, separator);
 
-    for (int i = 0; i < length; ) {
+    for (int i = 0; i < line.size(); ) {
         b = separator[0];
         if (line.find(b, i) == -1) {
-            a = line.substr(i, length - i);
+            a = line.substr(i, line.size() - i);
             v.push_back(a);
-            i = length + 1;
+            i = line.size() + 1;
         }
         else {
             a = line.substr(i,line.find(b, i) - i );
