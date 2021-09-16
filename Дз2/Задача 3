@@ -7,12 +7,11 @@ int main() {
     std::cin >> n;
     std::vector<int> v(n);
     for(int i = 0; i < n; i++) {
-        v[i] = i;
         std:: cin >> v[i];
     }
 
     for(int i=1; i < n; i++) {
-        for (int j = i; j > 0 && v[j - 1] > v[j]; j--) {
+        for (unsigned int j = i; j > 0 && v[j - 1] > v[j]; j--) {
             std::swap(v[j - 1], v[j]);
         }
     }
