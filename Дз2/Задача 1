@@ -1,0 +1,31 @@
+#include <iostream>
+
+int main() {
+    int x[2];
+    int A[2][2];
+    int result_vector[2];
+    std::cout << "Matrix representation of a tensor: " << std::endl;
+    for (auto i = 0u; i < 2; i++){
+        for (auto j = 0u; j < 2; j++)
+            std::cin >> A[i][j];
+    }
+    std::cout << "Vector is: " << std::endl;
+    for (auto i = 0u; i < 2; i++){
+        std::cin>>x[i];
+    }
+
+    for(auto i=0u; i<2; i++)
+    {
+        result_vector[i]=0;
+        for(auto j=0u; j<2; j++)
+        {
+            result_vector[i]+=A[i][j]*x[j];
+        }
+    }
+    std::cout << "The result is: "<< std::endl;
+    for(auto i=0u; i<2; i++)
+    {
+        std::cout << result_vector[i] << std::endl;
+    }
+    return 0;
+}
