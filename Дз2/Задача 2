@@ -13,9 +13,9 @@ int main() {
     length = line.size();
     std::cout << "Enter a separator: " << std::endl;
     std::getline(std:: cin, separator);
-    b = separator[0];
 
     for (int i = 0; i < length; ) {
+        b = separator[0];
         if (line.find(b, i) == -1) {
             a = line.substr(i, length - i);
             v.push_back(a);
