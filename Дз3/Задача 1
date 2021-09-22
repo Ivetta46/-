@@ -1,0 +1,20 @@
+#include <iostream>
+
+int fib(int number)
+{
+    if (number == 0)
+        return 1;
+    if (number == 1)
+        return 1;
+    return fib(number-1) + fib(number-2);
+}
+
+int main()
+{
+    int  n;
+    std::cout << "The number of the Fibonacci number: " << std::endl;
+    std::cin >> n;
+    std::cout << "Calculated value: " << fib(n);
+
+    return 0;
+}
