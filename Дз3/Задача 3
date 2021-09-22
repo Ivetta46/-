@@ -1,0 +1,31 @@
+#include <iostream>
+#include<vector>
+#include<functional>
+
+int main()
+{
+    int n;
+    std::cout << "Enter size of array: " << std::endl;
+    std::cin >> n;
+    std::vector<int> vec(n);
+    for(auto i = 0u; i < n; i++) {
+        std:: cin >> vec[i];
+    }
+
+    std::sort(std::begin(vec), std::end(vec),
+              [](int a, int b) {return a > b; });
+
+    std::cout << "Sort in descending order: "<< std::endl;
+    for (auto item : vec)
+        std::cout << item << " ";
+
+    std::sort(std::begin(vec), std::end(vec),
+              [](int a, int b) {return a < b; });
+
+    std::cout << " "<< std::endl;
+
+    std::cout << "Sort in ascending order: "<< std::endl;
+    for (auto item : vec)
+        std::cout << item << " ";
+    return 0;
+}
