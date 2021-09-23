@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <functional>
+
+double calculate(double a, double b, std::function < double(double, double) > A) {
+    return A(a, b);
+}
+
+int main() {
+    std::vector < std::function < double(double, double) >> arr = { [](double a, double b) {return a + b; }, [](double a, double b) {return a - b; }, [](double a, double b) {return a * b; }, [](double a, double b) {return a / b; } } ;
+    double a, b;
+    std::cin >> a >> b;
+    std::cout << "Answers: \n";
+    for (int i = 0; i < arr.size(); i++) {
+        std::cout << calculate(a, b, arr[i]) << '\n';
+    }
+    return 0;
+}
