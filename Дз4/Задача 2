@@ -39,12 +39,18 @@ int main() {
     s2.add_lesson(&l1);
     l1.add_student(&s2);
     cout << "l1: ";
-    for (int i = 0; i < l1.arr_students.size(); ++i) {
-        cout << l1.arr_students[i]->name << ' ';
+    // for (int i = 0; i < l1.arr_students.size(); ++i) {
+    //     cout << l1.arr_students[i]->name << ' ';
+    //}
+    for(auto& f : l1.arr_students){
+        std::cout << l1.arr_students[i]->name << ' ' << '\n';
     }
     cout << "\ns1: ";
-    for (int i = 0; i < s1.arr_lessons.size(); ++i) {
-        cout << s1.arr_lessons[i]->name << ' ';
+    //for (int i = 0; i < s1.arr_lessons.size(); ++i) {
+    //    cout << s1.arr_lessons[i]->name << ' ';
+    //}
+    for(auto& f : s1.arr_lessons){
+        std::cout << s1.arr_lessons[i]->name << ' ' << '\n';
     }
     cout << '\n';
     return 0;
