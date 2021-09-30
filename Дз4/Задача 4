@@ -1,0 +1,43 @@
+#include <iostream>
+
+enum class Months
+{
+    JANUARY = 1,
+    FEBRUARY ,
+    MARCH ,
+    APRIL ,
+    MAY ,
+    JUNE ,
+    JULY ,
+    AUGUST,
+    SEPTEMBER ,
+    OCTOBER ,
+    NOVEMBER ,
+    DECEMBER
+};
+
+int main() {
+
+    int days_at_month(Months month) {
+        switch (month) {
+            case Months::JANUARY:
+            case Months::MARCH:
+            case Months::MAY:
+            case Months::JULY:
+            case Months::AUGUST:
+            case Months::OCTOBER:
+            case Months::DECEMBER:
+                return 31;
+                break;
+            case Months::FEBRUARY:
+                return 28;
+                break;
+            case Months::APRIL:
+            case Months::JUNE:
+            case Months::SEPTEMBER:
+            case Months::NOVEMBER:
+                return 30;
+                break;
+        }
+    }
+}
