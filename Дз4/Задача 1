@@ -1,0 +1,91 @@
+#include <iostream>
+#include <vector>
+
+
+int main() {
+    struct Vector {
+        std::vector<double> components;
+        unsigned int dim;
+    };
+
+    std::istream &operator>>(std::istream &istr, Vector &v) {
+        std::cout << "Enter the dimension of the vector: ";
+        istr >> v.dim;
+        std::cout << "Enter the components of the vector:  ";
+
+        for (unsigned int i = 0u; i < v.dim; i++) {
+            double tmp;
+            istr >> tmp;
+            v.components.push_back(tmp);
+        }
+        std::cout << '\n';
+        return istr;
+    }
+
+    std::ostream &operator<<(std::ostream &ostr, const Vector &vec) {
+        ostr << "Dimension of the vector: " << vec.dim << '\n';
+        ostr << "Vector Components:  ";
+
+        for (auto i = 0u; i < vec.components.size(); i++) {
+            ostr << vec.components[i] << ' ';
+        }
+        ostr << '\n';
+        return ostr;
+    }
+
+
+    Vector operator*(const Vector &v, const double &num) {
+        Vector tmp;
+        tmp.dim = v.dim;
+        for (auto item: v.components) {
+            tmp.components.push_back(item * num);
+        }
+
+        return tmp;
+    }
+
+
+    Vector operator*(const double &num, const Vector &v) {
+        Vector tmp;
+        tmp.dim = v.dim;
+        for (auto item: v.components) {
+            tmp.components.push_back(item * num);
+        }
+
+        return tmp;
+    }
+
+    Vector operator+(const Vector &v1, const Vector &v2) {
+        Vector tmp;
+        tmp.dim = v1.dim;
+
+        for (unsigned int i = 0u; i < v1.dim; i++) {
+            tmp.components.push_back(v1.components[i] + v2.components[i]);
+        }
+        return tmp;
+    }
+
+    Vector operator-(const Vector &v1, const Vector &v2) {
+        Vector tmp;
+        tmp.dim = v1.dim;
+
+        for (unsigned int i = 0u; i < v1.dim; i++) {
+            tmp.components.push_back(v1.components[i] - v2.components[i]);
+        }
+        return tmp;
+    }
+
+    Vector &operator-(Vector &v) {
+        for (auto &item: v.components) {
+            item *= -1;
+        }
+        return v;
+    }
+    double scalar(const Vector &v1, const Vector &v2) {
+        double result = 0;
+        for (unsigned int i = 0u; i < v1.dim; i++) {
+            result += v1.components[i] * v2.components[i];
+        }
+        return result;
+    }
+}
