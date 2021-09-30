@@ -38,7 +38,7 @@ int main() {
             std::cout << "30 days" << std::endl;
             break;
         case Month::FEBRUARY:
-            std::cout << "28(29) days!" << std::endl;
+            std::cout << "28(29) days" << std::endl;
             break;
         default:
             std::cout << "There are 12 month!" << std::endl;
