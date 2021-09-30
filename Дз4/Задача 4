@@ -17,27 +17,32 @@ enum class Months
 };
 
 int main() {
+    std::cout << "Enter month: " << std::endl;
+    Month month;
+    int days_at_month;
+    std::cin >> days_at_month;
+    switch (month) {
+        case Month::JANUARY:
+        case Month::MARCH:
+        case Month::MAY:
+        case Month::JULY:
+        case Month::AUGUST:
+        case Month::OCTOBER:
+        case Month::DECEMBER:
+            std::cout << "31 days" << std::endl;
+            break;
+        case Month::APRIL:
+        case Month::JUNE:
+        case Month::SEPTEMBER:
+        case Month::NOVEMBER:
+            std::cout << "30 days" << std::endl;
+            break;
+        case Month::FEBRUARY:
+            std::cout << "28(29) days!" << std::endl;
+            break;
+        default:
+            std::cout << "There are 12 month!" << std::endl;
 
-    int days_at_month(Months month) {
-        switch (month) {
-            case Months::JANUARY:
-            case Months::MARCH:
-            case Months::MAY:
-            case Months::JULY:
-            case Months::AUGUST:
-            case Months::OCTOBER:
-            case Months::DECEMBER:
-                return 31;
-                break;
-            case Months::FEBRUARY:
-                return 28;
-                break;
-            case Months::APRIL:
-            case Months::JUNE:
-            case Months::SEPTEMBER:
-            case Months::NOVEMBER:
-                return 30;
-                break;
-        }
     }
+    return 0;
 }
