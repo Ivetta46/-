@@ -43,16 +43,14 @@ int main() {
     //     cout << l1.arr_students[i]->name << ' ';
     //}
     for(auto& f : l1.arr_students){
-        int i = 0;
-        std::cout << l1.arr_students[i]->name << ' ' << '\n';
+        std::cout << f->name << ' ' << '\n';
     }
     cout << "\ns1: ";
     //for (int i = 0; i < s1.arr_lessons.size(); ++i) {
     //    cout << s1.arr_lessons[i]->name << ' ';
     //}
-    for(auto& f : s1.arr_lessons){
-        int i =0;
-        std::cout << s1.arr_lessons[i]->name << ' ' << '\n';
+    for(auto& g : s1.arr_lessons){
+        std::cout << g->name << ' ' << '\n';
     }
     cout << '\n';
     return 0;
