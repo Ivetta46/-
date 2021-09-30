@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+struct DateTime {
+	unsigned int millisecond : 10;
+	unsigned int second : 6;
+	unsigned int minute : 6;
+	unsigned int hour : 5;
+	unsigned int day : 5;
+	unsigned int month : 4;
+	unsigned int year : 12;
+};
+int main()
+{
+	setlocale(0, "");
+	DateTime date;
+	int t;
+	cout << "Enter milliseconds: "; cin >> t; date.millisecond = t;
+	cout << "Enter seconds: "; cin >> t; date.second = t;
+	cout << "Enter minutes: "; cin >> t; date.minute = t;
+	cout << "Enter hours: "; cin >> t; date.hour = t;
+	cout << "Enter the day: "; cin >> t; date.day= t;
+	cout << "Enter the month: "; cin >> t; date.month = t;
+	cout << "Enter the year: "; cin >> t; date.year= t;
+	cout << "Date: " << date.day << "." << date.month << "." << date.year << "	"
+		<< "Time: " << date.hour << ":" << date.minute << ":" << date.second << ":" << date.millisecond;
+	return 0;
+}
