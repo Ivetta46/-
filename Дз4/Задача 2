@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+
+
+using namespace std;
+
+struct Student;
+struct Lesson;
+
+struct Student {
+    string name;
+    vector<Lesson*> arr_lessons;
+
+    Student(string name_): name(name_) {}
+
+    void add_lesson(Lesson* other) {
+        arr_lessons.push_back(other);
+    }
+
+};
+
+struct Lesson {
+    string name;
+    vector<Student*> arr_students;
+    Lesson(string name_): name(name_) {}
+
+    void add_student(Student* other) {
+        arr_students.push_back(other);
+    }
+};
+
+int main() {
+    Student s1("Ivan"), s2("Kate");
+    Lesson l1("Math"), l2("Phys");
+    s1.add_lesson(&l1);
+    l1.add_student(&s1);
+    s1.add_lesson(&l2);
+    l2.add_student(&s1);
+    s2.add_lesson(&l1);
+    l1.add_student(&s2);
+    cout << "l1: ";
+    for (int i = 0; i < l1.arr_students.size(); ++i) {
+        cout << l1.arr_students[i]->name << ' ';
+    }
+    cout << "\ns1: ";
+    for (int i = 0; i < s1.arr_lessons.size(); ++i) {
+        cout << s1.arr_lessons[i]->name << ' ';
+    }
+    cout << '\n';
+    return 0;
+}
