@@ -43,6 +43,7 @@ int main() {
     //     cout << l1.arr_students[i]->name << ' ';
     //}
     for(auto& f : l1.arr_students){
+        int i = 0;
         std::cout << l1.arr_students[i]->name << ' ' << '\n';
     }
     cout << "\ns1: ";
@@ -50,6 +51,7 @@ int main() {
     //    cout << s1.arr_lessons[i]->name << ' ';
     //}
     for(auto& f : s1.arr_lessons){
+        int i =0;
         std::cout << s1.arr_lessons[i]->name << ' ' << '\n';
     }
     cout << '\n';
