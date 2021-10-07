@@ -1,1 +1,23 @@
+Ошибка линкера с обнаружением многократно определенного внешнего символа:
+//main.cpp
+#include "List.h"
+
+void main()
+{
+}
+
+//List.h
+#ifndef _LIST_H_
+#define _LIST_H_
+const char* assetType[] = {"menu", "products", "price"};
+void func();
+#endif
+
+//List.c
+#include "List.h"
+
+void func()
+{
+    int i;
+}
 
