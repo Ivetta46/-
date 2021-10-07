@@ -1,43 +1,35 @@
-Ошибка линкера с обнаружением многократно определенного внешнего символа:
+Ошибка 1:
 //main.cpp
+#include <iostream>
 #include "List.h"
-
-void main()
-{
-}
-
-//List.h
-#ifndef _LIST_H_
-#define _LIST_H_
-const char* assetType[] = {"menu", "products", "price"};
-void func();
-#endif
-
-//List.c
-#include "List.h"
-
-void func()
-{
-    int i;
-}
-
-Ошибка линкера с неразрешенным внешним символом:
-//main.cpp
-#include "file.h"
+#include "List1.h"
 
 int main()
 {
-   int a = GetIt();
-   return 0;
+    std::cout << "Hello, World!" << std::endl;
 }
 
-//file.h
-static int GetIt();
-
-//file.c
-#include "file.h"
-
-static int GetIt()
+//List.h
+int getitList()
 {
-   return 1;
+     return 1;
+}     
+
+//List1.h
+#include "List.h"
+
+Ошибка 2:
+//main.cpp
+#include <iostream>
+#include "List.h"
+
+int main()
+{
+   std::cout << "Hello, World!" << std::endl;
+   int a = getitList();
 }
+
+//List.h
+int getitList();
+
+
