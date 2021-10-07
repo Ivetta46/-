@@ -21,3 +21,23 @@ void func()
     int i;
 }
 
+Ошибка линкера с неразрешенным внешним символом:
+//main.cpp
+#include "file.h"
+
+int main()
+{
+   int a = GetIt();
+   return 0;
+}
+
+//file.h
+static int GetIt();
+
+//file.c
+#include "file.h"
+
+static int GetIt()
+{
+   return 1;
+}
