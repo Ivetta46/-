@@ -26,32 +26,28 @@ void Energy::erg_to_J()
 
 void Energy::read()
 {
+	int it_working;
 	std::cout << " Enter the value and unit of energy(for example: 23 J): ";
 	double e_value;
 	std::string e_unit;
 	std::cin >> e_value >> e_unit;
-	if (e_unit == "J")
-	{
-		m_J = e_value;
-		J_to_erg();
-		J_to_eV();
-	}
-	else if (e_unit == "eV")
-	{
-		m_eV = e_value;
-		eV_to_J();
-		J_to_erg();
-	}
-	else if (e_unit == "erg")
-	{
-		m_erg = e_value;
-		erg_to_J();
-		J_to_eV();
-	}
-	else
-	{
-		std::cout << " You entered the wrong energy unit" << std::endl;
-	}
+	switch (e_value) {
+		case "J":
+		    m_J = e_value;
+		    J_to_erg();
+		    J_to_eV();
+	        case "eV":
+		    m_eV = e_value;
+		    eV_to_J();
+		    J_to_erg();
+	        case "erg":
+		    m_erg = e_value;
+		    erg_to_J();
+		    J_to_eV();
+	
+		default:
+		     std::cout << " You entered the wrong energy unit" << std::endl;
+	        }
 }
 
 void Energy::print()
