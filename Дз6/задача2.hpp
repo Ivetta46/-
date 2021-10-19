@@ -51,4 +51,5 @@ public:
 private:
 	int numerator;
 	unsigned int denominator;
+	void reduce();
 };
