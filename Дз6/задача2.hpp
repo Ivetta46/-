@@ -16,6 +16,7 @@ public:
 	{}
 	~Fraction()
 	{}
+	
 	explicit operator double() const
 	{
 		return double(numerator) / double(denominator);
