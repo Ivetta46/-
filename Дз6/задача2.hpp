@@ -14,13 +14,15 @@ public:
 	{}
 	Fraction(int p, unsigned int q): numerator(p), denominator(q)
 	{}
+	Fraction(const Fraction& other) : numerator(other.numerator) {}
+	Fraction(const Fraction& other) : denominator(other.denominator) {}
 	~Fraction()
 	{}
-	
 	explicit operator double() const
 	{
 		return double(numerator) / double(denominator);
 	}
+	SmartPtr(const SmartPtr& another) : m_ptr(another.m_ptr) {}
 
 	void reduce();
 	friend std::ostream& operator<< (std::ostream& stream, Fraction& frac);
