@@ -14,8 +14,61 @@ public:
 	{}
 	Fraction(int p, unsigned int q): numerator(p), denominator(q)
 	{}
-	Fraction(const Fraction& other) : numerator(other.numerator) {}
-	Fraction(const Fraction& other) : denominator(other.denominator) {}
+	
+	// Конструктор копирования
+	Fraction(const Fraction& x)
+	{
+		*denominator = *x.denominator;
+		*numerator = *x.numerator;
+	}
+ 
+	// Оператор присваивания копированием
+	Fraction& operator=(const Fraction& x)
+	{
+		if (&x == this)
+			return *this;
+
+		*denominator = *x.denominator;
+		*numerator = *x.numerator;
+ 
+		return *this;
+	}
+	
+	// Конструктор перемещения
+	Fraction(Fraction&& x)
+		: numerator(x.numerator)
+		: denominator(x.denominator)
+	{
+		x.numerator = nullptr; 
+	        x.denominator = nullptr;
+	}
+ 
+	// Оператор присваивания копированием
+	Fraction& operator=(const Fraction& x)
+	{
+		if (&x == this)
+			return *this;
+ 
+		*denominator = *x.denominator;
+		*numerator = *x.numerator;
+ 
+		return *this;
+	}
+ 
+	// Оператор присваивания перемещением
+	Fraction& operator=(Fraction&& x)
+	{
+		if (&x == this)
+			return *this;
+ 
+		numerator = x.numerator;
+		x.numerator = nullptr; 
+		denominator = x.denominator;
+		x.denominator = nullptr; 
+		
+		return *this;
+	}
+	
 	~Fraction()
 	{}
 	explicit operator double() const
