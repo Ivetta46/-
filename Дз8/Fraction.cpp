@@ -2,8 +2,8 @@
 
 int alg_euclid(int a, int b)
 {
-    if (b != 0)
-    return alg_euclid(b, a % b);
+    if (b == 0) return a;
+	return alg_euclid(b, a % b);
 }
 
 void Fraction::reduce()
