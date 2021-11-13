@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+template<typename T_1, typename T_2>
+void merge(std::vector<T_1>& arr1, int iBegin, int middle, int iEnd, std::vector<T_2>& arr2)
+{
+    int a = iBegin;
+    int b = middle;
+    for (int i = iBegin; i < iEnd; i++){
+        if (a < middle and (b >= iEnd or arr1.at(a) < arr1.at(b))){
+            arr2.at(i) = arr1.at(a);
+            a += 1;
+        }
+        else {
+            arr2.at(i) = arr1.at(b);
+            b += 1;
+        }
+    }
+}
+
+template<typename T_1, typename T_2>
+void split(std::vector<T_1>& T1, int iBegin, int iEnd, std::vector<T_2>& T2)
+{
+    if (iEnd - iBegin <= 1)
+        return;
+    int middle = (iEnd + iBegin) / 2;
+    split(T2, iBegin,  middle, T1);
+    split(T2, middle,    iEnd, T1);
+    merge(T1, iBegin, middle, iEnd, T2);
+}
+template<typename T>
+void sort(std::vector<T>& v){
+    std::vector<T> B = v;
+    split(B, 0, v.size(), v);
+}
+
+
+
+
+int main() {
+    int n;
+    std::string s;
+    std::cout << "Enter quantity of arrays: " << std::endl;
+    std::cin >> n;
+    std::cout << "Enter strings: "<< std::endl;
+    std::vector<std::string> vec(n);
+    for(auto i = 0u; i < n; i++) {
+        std:: cin >> vec[i];
+    }
+    sort(vec);
+    for (int i = 0; i < n; i++) {
+        std::cout << vec[i] << " ";
+    }
+
+}
