@@ -35,19 +35,19 @@ void sort(std::vector<T>& v){
 }
 
 
-
 int main() {
-
-    int n, x;
-    std::cout << "Enter size of array: " << std::endl;
+    int n;
+    std::string s;
+    std::cout << "Enter quantity of arrays: " << std::endl;
     std::cin >> n;
-    std::cout << "Enter your array: " << std::endl;
-    std::vector<int> vec(n);
+    std::cout << "Enter strings: "<< std::endl;
+    std::vector<std::string> vec(n);
     for(auto i = 0u; i < n; i++) {
         std:: cin >> vec[i];
     }
     sort(vec);
-    for (int i: vec) {
-        std::cout << i << " ";
+    for (int i = 0; i < n; i++) {
+        std::cout << vec[i] << " ";
     }
-} 
+
+}
