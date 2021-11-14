@@ -1,0 +1,115 @@
+#include <iostream>
+#include <vector>
+
+template <typename T>
+class Vector
+{
+public:
+    friend std::istream &operator>>(std::istream &istr, Vector<T> &t) {
+        std::cout << "Enter the dimension of the vector: ";
+        istr >> t.dim;
+        std::cout << "Enter the components of the vector:  ";
+
+        for (unsigned int i = 0u; i < t.dim; i++) {
+            double tmp;
+            istr >> tmp;
+            t.components.push_back(tmp);
+        }
+        std::cout << '\n';
+        return istr;
+    }
+
+    friend std::ostream &operator<<(std::ostream &ostr, const Vector<T> &t) {
+        ostr << "Dimension of the vector: " << t.dim << '\n';
+        ostr << "Vector Components:  ";
+
+        for (auto i = 0u; i < t.components.size(); i++) {
+            ostr << t.components[i] << ' ';
+        }
+        ostr << '\n';
+        return ostr;
+    }
+
+    friend Vector<T> operator*(const Vector<T> &t, const T &num) {
+        Vector<T> tmp;
+        tmp.dim = t.dim;
+        for (auto item: t.components) {
+            tmp.components.push_back(item * num);
+        }
+        return tmp;
+    }
+
+
+    friend Vector<T> operator*(const T &num, const Vector<T> &t) {
+        Vector<T> tmp;
+        tmp.dim = t.dim;
+        for (auto item: t.components) {
+            tmp.components.push_back(item * num);
+        }
+        return tmp;
+    }
+
+
+    friend Vector<T> operator+(const Vector<T> &t1, const Vector<T> &t2) {
+        Vector<T> tmp;
+        tmp.dim = t1.dim;
+
+        for (unsigned int i = 0u; i < t1.dim; i++) {
+            tmp.components.push_back(t1.components[i] + t2.components[i]);
+        }
+        return tmp;
+    }
+
+
+
+    friend Vector<T> operator-(const Vector<T> &t1, const Vector<T> &t2) {
+        Vector<T> tmp;
+        tmp.dim = t1.dim;
+
+        for (unsigned int i = 0u; i < t1.dim; i++) {
+            tmp.components.push_back(t1.components[i] - t2.components[i]);
+        }
+        return tmp;
+    }
+
+
+    friend Vector<T> &operator-(Vector<T> &t) {
+        for (auto &item: t.components) {
+            item *= -1;
+        }
+        return t;
+    }
+
+
+    friend T scalar(const Vector<T> &t1, const Vector<T> &t2) {
+        T result = 0;
+        for (unsigned int i = 0u; i < t1.dim; i++) {
+            result += t1.components[i] * t2.components[i];
+        }
+        return result;
+    }
+private:
+    std::vector<T> components;
+    unsigned dim;
+};
+
+int main() {
+
+    Vector < int > v1;
+    std::cout << "Enter vector v:\n";
+    std::cin >> v1;
+    std::cout << '\n';
+
+    int a;
+    std::cout << "Enter a number:\n";
+    std::cin >> a;
+    std::cout << "v * a =\n" << v1 * a << '\n';
+    std::cout << "Enter the second vector u:\n";
+
+    Vector < int > v2;
+    std::cin >> v2;
+    std::cout << "v + u =\n" << v1 + v2 << '\n';
+    std::cout << "v - u =\n" << v1 - v2 << '\n';
+    std::cout << "Scalar of v1 and v2 = " << scalar(v1, v2) << '\n';
+    return 0;
+}
