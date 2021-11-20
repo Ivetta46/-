@@ -1,3 +1,38 @@
 1) Вариативный шаблон - это шаблон, который принимает произвольное число аргументов.
-2)
-3) Узнать размер пакета можно с помощью sizeof(имя пакета)
+2)   -через рекурсивную генерацию
+// Основная функция
+template<typename T, typename... Types>
+void print_first_realization(T first_argument, Types... arguments) {
+    print_first_realization(first_argument);
+    print_first_realization(arguments...);
+}
+     -через if constexpr
+template<typename T, typename... Types>
+void print_second_realization(T first_argument, Types... arguments) {
+    std::cout << first_argument << ' ';
+    if constexpr(sizeof...(arguments) > 0) {
+        print_second_realization(arguments...);
+    }
+}
+      -через выражение свёртки
+// Класс, добавляющий разделитель для третьей реализации print
+template<typename T>
+class SeparatorAdder {
+public:
+    explicit SeparatorAdder(T& argument) : argument(argument) {}
+
+    friend std::ostream& operator<<(std::ostream& os, const SeparatorAdder& wrapper) {
+        return os << wrapper.argument << ' ';
+    }
+
+private:
+    T& argument;
+};
+
+// Третья реализация функции print через выражение свёртки
+template<typename... Types>
+void print(Types... arguments) {
+    (std::cout << ... << SeparatorAdder(arguments));
+}
+
+3) Узнать размер пакета можно с помощью sizeof...(имя пакета)
