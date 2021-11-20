@@ -37,8 +37,12 @@ void print(Types... arguments) {
 
 3) Узнать размер пакета можно с помощью sizeof...(имя пакета)
 4)Выражения свёртки:
+
 1) ... OPERATOR args <=> ((arg1 OPERATOR arg2) OPERATOR arg3) OPERATOR arg4 и тд
 2) args OPERATOR ... <=> arg1 OPERATOR (arg2 OPERATOR (arg3 OPERATOR arg4))
 3) special_arg OPERATOR ... OPERATOR args <=> ((special_arg OPERATOR arg1) OPERATOR arg2) OPERATOR arg3
 4) args OPERATOR ... OPERATOR special_arg <=> arg1 OPERATOR (arg2 OPERATOR (arg3 OPERATOR special_arg))
 //в качестве OPERATOR может быть +,*,..
+
+5) Через шаблоны -> статический полиморфизм
+Через наследование -> динамический полиморфизм
