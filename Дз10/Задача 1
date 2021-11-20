@@ -1,0 +1,17 @@
+#include <iostream>
+
+template<typename Func, typename... Types>
+void print(Func f, Types... arguments) {
+    std::cout<< "Result is: " << (f)(arguments...) << std::endl;
+}
+
+template<typename Func, typename... Types>
+Func foldSum(Types... s)
+{
+    return (... + s); // ((s1 + s2) + s3) ...
+}
+
+int main() {
+    foldSum =  (int f)(int, int, int);
+    print(int f, 3, 4, 5) ;
+}
