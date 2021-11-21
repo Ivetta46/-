@@ -2,9 +2,8 @@
 
 template<typename Func, typename... Types>
 void print(Func f, Types... arguments) {
-    std::cout<< "Result is: " << f << std::endl;
+    std::cout<< "Result is: " <<  f(arguments...) << std::endl;
 }
-
 
 template<typename... Types>
 auto foldSum(Types... s)
@@ -13,6 +12,6 @@ auto foldSum(Types... s)
 }
 
 int main() {
-//    foldSum =  (int f)(int, int, int);
-    print(foldSum(3, 5.5, 4));
+    print<int (*)(int, int, int), int, int, int>(foldSum<int, int, int>, 3, 5, 4);
+//    print(foldSum, 3, 5, 4);
 }
