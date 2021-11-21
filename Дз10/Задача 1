@@ -2,16 +2,17 @@
 
 template<typename Func, typename... Types>
 void print(Func f, Types... arguments) {
-    std::cout<< "Result is: " << (f)(arguments...) << std::endl;
+    std::cout<< "Result is: " << f << std::endl;
 }
 
-template<typename Func, typename... Types>
-Func foldSum(Types... s)
+
+template<typename... Types>
+auto foldSum(Types... s)
 {
     return (... + s); // ((s1 + s2) + s3) ...
 }
 
 int main() {
-    foldSum =  (int f)(int, int, int);
-    print(int f, 3, 4, 5) ;
+//    foldSum =  (int f)(int, int, int);
+    print(foldSum(3, 5.5, 4));
 }
