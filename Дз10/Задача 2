@@ -1,10 +1,14 @@
 #include <iostream>
-
 template<typename T, typename... Types>
 void usePtr(T f,Types... arguments) {
     std::cout<< "Result is: " <<  f(arguments...) << std::endl;
 }
 
+template< typename T, typename... Types>
+T *createPtr(Types... arg) {
+    T *ptr = new T(arg...);
+    return ptr;
+}
 
 auto f(int x) {
     return new int(x);
