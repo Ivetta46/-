@@ -1,0 +1,17 @@
+#include <iostream>
+
+template<typename T, typename... Types>
+void usePtr(T f,Types... arguments) {
+    std::cout<< "Result is: " <<  f(arguments...) << std::endl;
+}
+
+
+auto f(int x) {
+    return new int(x);
+}
+
+int main()
+{
+    usePtr( f, 34);
+    return 0;
+}
