@@ -1,0 +1,24 @@
+#include <iostream>
+
+constexpr double my_Exp(double d=0.0001, int x = 1, int c = 1){
+    double s = 1.0/x;
+    if (s < d) return s;
+    return s + my_Exp(d, x*c, c+1);
+}
+
+
+constexpr double exp(int x) {
+    double result =my_Exp();
+    for (int i=1; i < x; i++){
+        result *= result;
+    }
+    return result;
+}
+
+int main()
+{
+    constexpr double res =exp(1);
+
+    std::cout << res;
+    return 0;
+}
