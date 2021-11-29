@@ -8,7 +8,7 @@ constexpr double exp(double d, int x = 1, int c = 1){
 
 int main()
 {
-    constexpr double result =exp(0.5);
+    constexpr double result =exp(0.001);
 
     std::cout << result;
     return 0;
