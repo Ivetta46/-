@@ -2,9 +2,9 @@
 #include <cmath>
 
 constexpr double exp(double d, int x = 1, int c = 1){
-    double res = 1.0/x;
-    if (res < d) return res;
-    return res + exp(d, x*c, c+1);
+    double s = 1.0/x;
+    if (s < d) return s;
+    return s + exp(d, x*c, c+1);
 }
 
 int main()
