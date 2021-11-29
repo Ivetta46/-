@@ -1,0 +1,16 @@
+#include <iostream>
+#include <cmath>
+
+constexpr double exp(double d, int x = 1, int c = 1){
+    double res = 1.0/x;
+    if (res < d) return res;
+    return res + exp(d, x*c, c+1);
+}
+
+int main()
+{
+    constexpr double result =exp(0.5);
+
+    std::cout << result;
+    return 0;
+}
