@@ -10,14 +10,14 @@ constexpr double my_Exp(double d=0.0001, int x = 1, int c = 1){
 constexpr double exp(int x) {
     double result =my_Exp();
     for (int i=1; i < x; i++){
-        result *= result;
+        result *= my_Exp();
     }
     return result;
 }
 
 int main()
 {
-    constexpr double res =exp(1);
+    constexpr double res =exp(7);
 
     std::cout << res;
     return 0;
