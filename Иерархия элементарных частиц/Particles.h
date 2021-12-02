@@ -99,7 +99,7 @@ public:
     Boson(bool isStable, bool hasMass, int spin, double elCharge, double E0 = 0,
           double timeOfLife = std::numeric_limits<double>::infinity()) : Particle(isStable, hasMass, spin, elCharge, E0, timeOfLife) {}
     virtual ~Boson() {cout << "Boson destructor" << endl;}
-    // перегрузка виртуальных функций
+    
     virtual Fraction getSpin() const {return Fraction(elCharge, 1);}
     virtual void printInfo() const;
     virtual string getName() const {return "Boson";}
